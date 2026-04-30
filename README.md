@@ -16,7 +16,7 @@
 
 ## ✨ About Me
 
-☕ Turning keystrokes into **scalable systems, clean architecture, and reliable products**.
+☕ Turning keystrokes into **scalable systems, clean architecture, and reliable products**.<br/>
 💻 9+ years shipping products across AI, SaaS, Fintech, Hospitality, and Enterprise domains.
 
 - 🌱 Currently exploring **AI-Driven Development, Agentic Systems & Being CTO**.
