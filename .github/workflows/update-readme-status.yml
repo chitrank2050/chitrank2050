@@ -59,7 +59,7 @@ jobs:
           GH_TOKEN: ${{ steps.generate_token.outputs.token }}
         run: |
           git config user.name "chitrank-actions[bot]"
-          git config user.email "actions@github.com"
+          git config user.email "279256889+chitrank-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
           git add README.md
           if git diff --staged --quiet; then
