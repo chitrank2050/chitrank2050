@@ -13,10 +13,43 @@
 ---
 <!-- SANITY_STATUS_SYNC:START -->
 <p align="left">
-  <img src="status.svg" alt="Live Status" />
+  <svg xmlns="http://www.w3.org/2000/svg" width="516.5" height="252" role="img"><rect width="100%" height="100%" fill="#0d1117" rx="6" />
+          <rect x="0" y="17" width="100%" height="20" fill="rgba(46, 160, 67, 0.15)" />
+          <text x="16" y="32" fill="#3fb950" font-family="monospace" font-size="14">+ {</text>
+        
+          <rect x="0" y="37" width="100%" height="20" fill="rgba(46, 160, 67, 0.15)" />
+          <text x="16" y="52" fill="#3fb950" font-family="monospace" font-size="14">+   "availability": "Open to Work | Available for Hire"</text>
+        
+          <rect x="0" y="57" width="100%" height="20" fill="rgba(46, 160, 67, 0.15)" />
+          <text x="16" y="72" fill="#3fb950" font-family="monospace" font-size="14">+   "role": "Senior | Lead | Staff Engineer"</text>
+        
+          <rect x="0" y="77" width="100%" height="20" fill="rgba(46, 160, 67, 0.15)" />
+          <text x="16" y="92" fill="#3fb950" font-family="monospace" font-size="14">+   "mode": "Remote Only"</text>
+        
+          <rect x="0" y="97" width="100%" height="20" fill="rgba(46, 160, 67, 0.15)" />
+          <text x="16" y="112" fill="#3fb950" font-family="monospace" font-size="14">+   "preferences": [</text>
+        
+          <rect x="0" y="117" width="100%" height="20" fill="rgba(46, 160, 67, 0.15)" />
+          <text x="16" y="132" fill="#3fb950" font-family="monospace" font-size="14">+     "Currently open to strong opportunities",</text>
+        
+          <rect x="0" y="137" width="100%" height="20" fill="rgba(46, 160, 67, 0.15)" />
+          <text x="16" y="152" fill="#3fb950" font-family="monospace" font-size="14">+     "Interested in AI / Full Stack / Leadership roles",</text>
+        
+          <rect x="0" y="157" width="100%" height="20" fill="rgba(46, 160, 67, 0.15)" />
+          <text x="16" y="172" fill="#3fb950" font-family="monospace" font-size="14">+     "Prefer product-focused teams with ownership",</text>
+        
+          <rect x="0" y="177" width="100%" height="20" fill="rgba(248, 81, 73, 0.15)" />
+          <text x="16" y="192" fill="#f85149" font-family="monospace" font-size="14">-     "Not interested in low-agency maintenance roles"</text>
+        
+          <rect x="0" y="197" width="100%" height="20" fill="rgba(46, 160, 67, 0.15)" />
+          <text x="16" y="212" fill="#3fb950" font-family="monospace" font-size="14">+   ]</text>
+        
+          <rect x="0" y="217" width="100%" height="20" fill="rgba(46, 160, 67, 0.15)" />
+          <text x="16" y="232" fill="#3fb950" font-family="monospace" font-size="14">+ }</text>
+        </svg>
 </p>
 
------
+---
 <!-- SANITY_STATUS_SYNC:END -->
 <!-- SANITY_STATUS_SYNC:END -->
 
