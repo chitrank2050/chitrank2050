@@ -11,6 +11,8 @@
 </p>
 
 ---
+<!-- SANITY_STATUS_SYNC:START -->
+<!-- SANITY_STATUS_SYNC:END -->
 
 ## ✨ About Me
 
@@ -53,7 +55,7 @@
 
 ## 🧠 Engineering Philosophy
 
-> “The future is already here — some teams are just running legacy code.” - Matrix inspired
+> “The future is already here - some teams are just running legacy code.” - Matrix inspired
 
 > “When you play the game of code, you either deploy... or you debug.” - Game of Thrones inspired
 
@@ -80,4 +82,4 @@
 
 If you're building something serious and need someone who can lead + execute, let's talk.
 
-⭐ *If you like what I do, consider giving my repos a star — it keeps me motivated!* ☕
+⭐ *If you like what I do, consider giving my repos a star - it keeps me motivated!* ☕

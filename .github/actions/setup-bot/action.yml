@@ -1,0 +1,37 @@
+# =============================================================
+# Setup Chitrank Bot Action
+#
+# Centralized action to generate a GitHub App installation
+# access token. This allows workflows to perform actions
+# (like creating PRs or pushing tags) that trigger other
+# workflows, bypassing the GITHUB_TOKEN restrictions.
+#
+# Usage:
+#   uses: ./.github/actions/setup-bot
+#   with:
+#     client-id: ${{ secrets.CHITRANK_BOT_CLIENT_ID }}
+#     private-key: ${{ secrets.CHITRANK_BOT_PRIVATE_KEY }}
+# =============================================================
+
+name: 'Setup Chitrank Bot'
+description: 'Generates a GitHub App token for automated tasks'
+inputs:
+  client-id:
+    description: 'The GitHub App Client ID'
+    required: true
+  private-key:
+    description: 'The GitHub App Private Key'
+    required: true
+outputs:
+  token:
+    description: 'The generated GitHub App token'
+    value: ${{ steps.generate_token.outputs.token }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Create Bot Token 🤖🔑
+      id: generate_token
+      uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+      with:
+        client-id: ${{ inputs.client-id }}
+        private-key: ${{ inputs.private-key }}
