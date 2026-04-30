@@ -6,7 +6,6 @@ on:
     - cron: '0 */6 * * *'
 
 concurrency:
-  # Ensure only one CI run per branch/PR at a time
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
@@ -20,15 +19,11 @@ env:
 jobs:
   update:
     name: Sync Status from Sanity
-    # Ensure only the repository owner can trigger manually, or it runs on schedule
     if: github.event_name == 'schedule' || github.actor == github.repository_owner
     runs-on: ubuntu-latest
     permissions:
       contents: write
     timeout-minutes: 5
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
 
     steps:
       - name: Harden Runner 🛡️
