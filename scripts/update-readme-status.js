@@ -2,7 +2,7 @@ const fs = require("fs");
 
 /**
  * Updates the README.md status section with data from Sanity.
- * Generates an SVG to provide a diff view without a copy button.
+ * Generates a unified, high-fidelity SVG status block.
  */
 async function updateStatus() {
   const projectId = process.env.SANITY_PROJECT_ID;
@@ -35,60 +35,66 @@ async function updateStatus() {
 
     if (d.isOpenToWork === true) {
       const lines = [];
-      lines.push({ type: 'add', text: `"availability": "Open to Work | Available for Hire"` });
 
-      if (d.statusRole) lines.push({ type: 'add', text: `"role": "${d.statusRole}"` });
-      if (d.statusMode) lines.push({ type: 'add', text: `"mode": "${d.statusMode}"` });
+      // Start of JSON
+      lines.push({ type: 'add', text: `{` });
+
+      lines.push({ type: 'add', text: `  "availability": "Open to Work | Available for Hire"` });
+
+      if (d.statusRole) lines.push({ type: 'add', text: `  "role": "${d.statusRole}"` });
+      if (d.statusMode) lines.push({ type: 'add', text: `  "mode": "${d.statusMode}"` });
 
       if (d.statusIntents && d.statusIntents.length > 0) {
-        lines.push({ type: 'add', text: `"preferences": [` });
+        lines.push({ type: 'add', text: `  "preferences": [` });
         d.statusIntents.forEach((item, i) => {
           const comma = (i === d.statusIntents.length - 1 && (!d.statusAvoids || d.statusAvoids.length === 0)) ? "" : ",";
-          lines.push({ type: 'add', text: `  "${item}"${comma}` });
+          lines.push({ type: 'add', text: `    "${item}"${comma}` });
         });
       }
 
       if (d.statusAvoids && d.statusAvoids.length > 0) {
         if (!d.statusIntents || d.statusIntents.length === 0) {
-          lines.push({ type: 'add', text: `"preferences": [` });
+          lines.push({ type: 'add', text: `  "preferences": [` });
         }
         d.statusAvoids.forEach((item, i) => {
           const comma = (i === d.statusAvoids.length - 1) ? "" : ",";
-          lines.push({ type: 'remove', text: `  "${item}"${comma}` });
+          lines.push({ type: 'remove', text: `    "${item}"${comma}` });
         });
       }
 
       if ((d.statusIntents && d.statusIntents.length > 0) || (d.statusAvoids && d.statusAvoids.length > 0)) {
-        lines.push({ type: 'add', text: `]` });
+        lines.push({ type: 'add', text: `  ]` });
       }
 
-      // Generate SVG
-      const lineHeight = 22;
-      const padding = 20;
-      const height = (lines.length + 2) * lineHeight + (padding * 2);
-      const width = 600;
+      // End of JSON
+      lines.push({ type: 'add', text: `}` });
+
+      // Calculate SVG Dimensions
+      const lineHeight = 20;
+      const padding = 16;
+      const maxChars = lines.reduce((max, line) => Math.max(max, line.text.length + 2), 20);
+      const width = Math.min(800, (maxChars * 8.5) + (padding * 2));
+      const height = lines.length * lineHeight + (padding * 2);
 
       let svgRows = `<rect width="100%" height="100%" fill="#0d1117" rx="6" />`;
-      svgRows += `<text x="${padding}" y="${padding + lineHeight}" fill="#c9d1d9" font-family="monospace" font-size="14">{</text>`;
 
       lines.forEach((line, index) => {
-        const y = padding + (index + 2) * lineHeight;
+        const y = padding + (index + 1) * lineHeight - 4;
         const bgColor = line.type === 'add' ? 'rgba(46, 160, 67, 0.15)' : 'rgba(248, 81, 73, 0.15)';
         const textColor = line.type === 'add' ? '#3fb950' : '#f85149';
         const symbol = line.type === 'add' ? '+' : '-';
 
         svgRows += `
-          <rect x="0" y="${y - 16}" width="100%" height="${lineHeight}" fill="${bgColor}" />
+          <rect x="0" y="${y - 15}" width="100%" height="${lineHeight}" fill="${bgColor}" />
           <text x="${padding}" y="${y}" fill="${textColor}" font-family="monospace" font-size="14">${symbol} ${line.text}</text>
         `;
       });
 
-      svgRows += `<text x="${padding}" y="${padding + (lines.length + 2) * lineHeight}" fill="#c9d1d9" font-family="monospace" font-size="14">}</text>`;
-
       const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">${svgRows}</svg>`;
       fs.writeFileSync("status.svg", svg);
 
-      readmeContent = `\n<p align="left">\n  <img src="status.svg" alt="Live Status" />\n</p>\n\n---\n`;
+      readmeContent = `\n<p align="left">\n  <img src="status.svg" alt="Live Status" />\n</p>\n\n-----
+<!-- SANITY_STATUS_SYNC:END -->\n`;
     }
 
     const readmePath = "README.md";
@@ -106,7 +112,7 @@ async function updateStatus() {
     const updated = readme.replace(markerRegex, `$1${readmeContent}$2`);
     fs.writeFileSync(readmePath, updated);
 
-    console.log(`✅ README synchronized via SVG. Visibility: ${d.isOpenToWork ? 'VISIBLE' : 'HIDDEN'}`);
+    console.log(`✅ README synchronized with full-diff SVG.`);
 
   } catch (error) {
     console.error("❌ Critical Error:", error.message);
