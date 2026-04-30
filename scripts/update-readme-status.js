@@ -2,12 +2,12 @@ const fs = require("fs");
 
 /**
  * Updates the README.md status section with data from Sanity.
- * Inlines a unified, high-fidelity SVG status block for zero-latency.
+ * Generates an SVG file to ensure proper rendering and no copy button.
  */
 async function updateStatus() {
   const projectId = process.env.SANITY_PROJECT_ID;
   const dataset = process.env.SANITY_DATASET || "production";
-
+  
   if (!projectId) {
     console.error("❌ Error: SANITY_PROJECT_ID secret is missing.");
     process.exit(1);
@@ -19,7 +19,7 @@ async function updateStatus() {
   try {
     console.log("🛰️ Fetching status from Sanity...");
     const res = await fetch(url);
-
+    
     if (!res.ok) {
       throw new Error(`Sanity API failed: ${res.statusText} (${res.status})`);
     }
@@ -35,8 +35,8 @@ async function updateStatus() {
 
     if (d.isOpenToWork === true) {
       const lines = [];
-
-      // Braces are now part of the 'add' lines so they get the green background
+      
+      // Braces are included to ensure unified background highlighting
       lines.push({ type: 'add', text: `{` });
       lines.push({ type: 'add', text: `  "availability": "Open to Work | Available for Hire"` });
 
@@ -53,14 +53,14 @@ async function updateStatus() {
 
       if (d.statusAvoids && d.statusAvoids.length > 0) {
         if (!d.statusIntents || d.statusIntents.length === 0) {
-          lines.push({ type: 'add', text: `  "preferences": [` });
+           lines.push({ type: 'add', text: `  "preferences": [` });
         }
         d.statusAvoids.forEach((item, i) => {
           const comma = (i === d.statusAvoids.length - 1) ? "" : ",";
           lines.push({ type: 'remove', text: `    "${item}"${comma}` });
         });
       }
-
+      
       if ((d.statusIntents && d.statusIntents.length > 0) || (d.statusAvoids && d.statusAvoids.length > 0)) {
         lines.push({ type: 'add', text: `  ]` });
       }
@@ -80,17 +80,17 @@ async function updateStatus() {
         const bgColor = line.type === 'add' ? 'rgba(46, 160, 67, 0.15)' : 'rgba(248, 81, 73, 0.15)';
         const textColor = line.type === 'add' ? '#3fb950' : '#f85149';
         const symbol = line.type === 'add' ? '+' : '-';
-
+        
         svgRows += `
           <rect x="0" y="${y - 15}" width="100%" height="${lineHeight}" fill="${bgColor}" />
           <text x="${padding}" y="${y}" fill="${textColor}" font-family="monospace" font-size="14">${symbol} ${line.text}</text>
         `;
       });
 
-      const inlineSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" role="img">${svgRows}</svg>`;
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">${svgRows}</svg>`;
+      fs.writeFileSync("status.svg", svg);
 
-      // Using inlining to avoid blinking; markers are handled by the replace logic
-      readmeContent = `\n<p align="left">\n  ${inlineSvg}\n</p>\n\n---\n`;
+      readmeContent = `\n<p align="left">\n  <img src="status.svg" alt="Live Status" />\n</p>\n\n---\n`;
     }
 
     const readmePath = "README.md";
@@ -105,11 +105,10 @@ async function updateStatus() {
       throw new Error("Missing markers in README.md");
     }
 
-    // $1 and $2 ensure the markers are preserved without duplication
     const updated = readme.replace(markerRegex, `$1${readmeContent}$2`);
     fs.writeFileSync(readmePath, updated);
-
-    console.log(`✅ README synchronized surgically with inlined SVG.`);
+    
+    console.log(`✅ README synchronized with status.svg file.`);
 
   } catch (error) {
     console.error("❌ Critical Error:", error.message);
