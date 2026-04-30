@@ -12,6 +12,15 @@
 
 ---
 <!-- SANITY_STATUS_SYNC:START -->
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="status-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="status-light.svg">
+    <img alt="Live Status" src="status-dark.svg">
+  </picture>
+</p>
+
+---
 <!-- SANITY_STATUS_SYNC:END -->
 
 ## ✨ About Me
