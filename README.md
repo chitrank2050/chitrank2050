@@ -12,11 +12,9 @@
 
 ---
 <!-- SANITY_STATUS_SYNC:START -->
-```diff
-{
-  + "availability": "Open to Work | Available for Hire"
-}
-```
+<p align="left">
+  <img src="status.svg" alt="Live Status" />
+</p>
 
 ---
 <!-- SANITY_STATUS_SYNC:END -->
