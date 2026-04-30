@@ -14,7 +14,7 @@
 
 ## ✨ About Me
 
-☕ Turning keystrokes into **scalable systems, clean architecture, and reliable products**.  
+☕ Turning keystrokes into **scalable systems, clean architecture, and reliable products**.
 💻 9+ years shipping products across AI, SaaS, Fintech, Hospitality, and Enterprise domains.
 
 - 🌱 Currently exploring **AI-Driven Development, Agentic Systems & Being CTO**.
@@ -63,7 +63,7 @@
 
 - AI-driven product engineering
 - Multi-tenant SaaS systems
-- Distributed backend systems 
+- Distributed backend systems
 - CTO-level ownership
 - Leadership that actually delivers
 
@@ -72,7 +72,7 @@
 ## ✨ Fun Facts
 
 - 🎧 Coding + gaming + music = Flow state
-- 📈 I care more about outcomes than buzzwords 
+- 📈 I care more about outcomes than buzzwords
 - 🧩 Loves problem-solving and system design
 - 🚀 Always open to learning and collaboration
 
