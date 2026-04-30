@@ -12,6 +12,13 @@
 
 ---
 <!-- SANITY_STATUS_SYNC:START -->
+```diff
+{
+  + "availability": "Open to Work | Available for Hire"
+}
+```
+
+---
 <!-- SANITY_STATUS_SYNC:END -->
 
 ## ✨ About Me
