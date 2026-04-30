@@ -2,7 +2,7 @@ const fs = require("fs");
 
 /**
  * Updates the README.md status section with data from Sanity.
- * Generates a unified, high-fidelity SVG status block.
+ * Inlines a unified, high-fidelity SVG status block for zero-latency.
  */
 async function updateStatus() {
   const projectId = process.env.SANITY_PROJECT_ID;
@@ -36,9 +36,8 @@ async function updateStatus() {
     if (d.isOpenToWork === true) {
       const lines = [];
 
-      // Start of JSON
+      // Braces are now part of the 'add' lines so they get the green background
       lines.push({ type: 'add', text: `{` });
-
       lines.push({ type: 'add', text: `  "availability": "Open to Work | Available for Hire"` });
 
       if (d.statusRole) lines.push({ type: 'add', text: `  "role": "${d.statusRole}"` });
@@ -65,8 +64,6 @@ async function updateStatus() {
       if ((d.statusIntents && d.statusIntents.length > 0) || (d.statusAvoids && d.statusAvoids.length > 0)) {
         lines.push({ type: 'add', text: `  ]` });
       }
-
-      // End of JSON
       lines.push({ type: 'add', text: `}` });
 
       // Calculate SVG Dimensions
@@ -90,11 +87,10 @@ async function updateStatus() {
         `;
       });
 
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">${svgRows}</svg>`;
-      fs.writeFileSync("status.svg", svg);
+      const inlineSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" role="img">${svgRows}</svg>`;
 
-      readmeContent = `\n<p align="left">\n  <img src="status.svg" alt="Live Status" />\n</p>\n\n-----
-<!-- SANITY_STATUS_SYNC:END -->\n`;
+      // Using inlining to avoid blinking; markers are handled by the replace logic
+      readmeContent = `\n<p align="left">\n  ${inlineSvg}\n</p>\n\n---\n`;
     }
 
     const readmePath = "README.md";
@@ -106,13 +102,14 @@ async function updateStatus() {
     const markerRegex = /(<!-- SANITY_STATUS_SYNC:START -->)[\s\S]*?(<!-- SANITY_STATUS_SYNC:END -->)/;
 
     if (!markerRegex.test(readme)) {
-      throw new Error("Missing markers: <!-- SANITY_STATUS_SYNC:START --> and <!-- SANITY_STATUS_SYNC:END --> in README.md");
+      throw new Error("Missing markers in README.md");
     }
 
+    // $1 and $2 ensure the markers are preserved without duplication
     const updated = readme.replace(markerRegex, `$1${readmeContent}$2`);
     fs.writeFileSync(readmePath, updated);
 
-    console.log(`✅ README synchronized with full-diff SVG.`);
+    console.log(`✅ README synchronized surgically with inlined SVG.`);
 
   } catch (error) {
     console.error("❌ Critical Error:", error.message);
