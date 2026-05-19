@@ -26,10 +26,10 @@ Also building open-source tools at [chitranklabs](https://github.com/orgs/chitra
 
 ## 🛠 Tech Stack
 
-**Frontend:** React · Next.js · React Native · TypeScript · Tailwind CSS
-**Backend:** Node.js · NestJS · Express · Go · FastAPI
-**Databases:** PostgreSQL · MongoDB · Redis · DynamoDB · pgvector
-**AI/ML:** RAG · LLMs · XGBoost · MLflow · Semantic Caching
+**Frontend:** React · Next.js · React Native · TypeScript · Tailwind CSS  
+**Backend:** Node.js · NestJS · Express · Go · FastAPI  
+**Databases:** PostgreSQL · MongoDB · Redis · DynamoDB · pgvector  
+**AI/ML:** RAG · LLMs · XGBoost · MLflow · Semantic Caching  
 **Cloud/DevOps:** AWS · Docker · Vercel · GitHub Actions · CircleCI · Kafka
 
 ---
