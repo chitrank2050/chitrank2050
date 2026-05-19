@@ -11,10 +11,10 @@ Interested in AI, Full-Stack, and Leadership roles at product-focused teams.
 
 ## 🔨 What I'm Building
 
-**[Meterplex](https://chitrankagnihotri.com/meterplex)** - Open-source multi-tenant usage metering engine
+**[Meterplex](https://github.com/chitrank2050/meterplex)** - Open-source multi-tenant usage metering engine
 `NestJS` `Kafka` `Redis` `PostgreSQL` `Docker`
 
-**[Ask Chitrank](https://chitrankagnihotri.com/ask-chitrank)** - Production RAG API with semantic caching
+**[Ask Chitrank](https://github.com/chitrank2050/ask-chitrank)** - Production RAG API with semantic caching
 `Groq (Llama 4)` `pgvector` `FastAPI` `Supabase`
 
 **[AirSense ML](https://github.com/chitrank2050/airsense-ml)** - End-to-end ML pipeline for AQI prediction
