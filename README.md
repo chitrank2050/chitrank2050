@@ -14,6 +14,9 @@ Interested in AI, Full-Stack, and Leadership roles at product-focused teams.
 **[Meterplex](https://github.com/chitrank2050/meterplex)** - Open-source multi-tenant usage metering engine
 `NestJS` `Kafka` `Redis` `PostgreSQL` `Docker`
 
+**[Agent Posture](https://github.com/chitrank2050/agent-posture)** - Principal-grade constitution & validation framework for AI agents
+`Node.js` `TypeScript` `ESM` `Zod`
+
 **[Ask Chitrank](https://github.com/chitrank2050/ask-chitrank)** - Production RAG API with semantic caching
 `Groq (Llama 4)` `pgvector` `FastAPI` `Supabase`
 
@@ -42,6 +45,6 @@ Also building open-source tools at [chitranklabs](https://github.com/orgs/chitra
 
 ---
 
-*If you're building something serious and need someone who can lead + execute, let's talk.*
+_If you're building something serious and need someone who can lead + execute, let's talk._
 
 [Portfolio](https://chitrankagnihotri.com) · [Email](mailto:chitrank2050@gmail.com) · [LinkedIn](https://linkedin.com/in/chitrank-agnihotri)
