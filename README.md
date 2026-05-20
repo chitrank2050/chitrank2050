@@ -9,7 +9,7 @@ Interested in AI, Full-Stack, and Leadership roles at product-focused teams.
 
 ---
 
-## 🔨 What I'm Building
+## 🔨 Featured Projects
 
 **[Meterplex](https://github.com/chitrank2050/meterplex)** - Open-source multi-tenant usage metering engine
 `NestJS` `Kafka` `Redis` `PostgreSQL` `Docker`
