@@ -25,6 +25,8 @@ Interested in AI, Full-Stack, and Leadership roles at product-focused teams.
 
 Also building open-source tools at [chitranklabs](https://github.com/orgs/chitranklabs).
 
+_*A complete directory of my projects, CLI tools, and experiments is available at [chitrankagnihotri.com/project](https://chitrankagnihotri.com/project).*_
+
 ---
 
 ## 🛠 Tech Stack
