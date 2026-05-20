@@ -25,7 +25,7 @@ Interested in AI, Full-Stack, and Leadership roles at product-focused teams.
 
 Also building open-source tools at [chitranklabs](https://github.com/orgs/chitranklabs).
 
-_*A complete directory of my projects, CLI tools, and experiments is available at [chitrankagnihotri.com/project](https://chitrankagnihotri.com/project).*_
+_*A complete directory of my projects, CLI tools, and experiments is available at [chitrankagnihotri.com/project](https://chitrankagnihotri.com/project?utm_source=github&utm_medium=profile&utm_campaign=readme).*_
 
 ---
 
@@ -49,4 +49,4 @@ _*A complete directory of my projects, CLI tools, and experiments is available a
 
 _If you're building something serious and need someone who can lead + execute, let's talk._
 
-[Portfolio](https://chitrankagnihotri.com) · [Email](mailto:chitrank2050@gmail.com) · [LinkedIn](https://linkedin.com/in/chitrank-agnihotri)
+[Portfolio](https://chitrankagnihotri.com?utm_source=github&utm_medium=profile&utm_campaign=readme) · [Email](mailto:chitrank2050@gmail.com) · [LinkedIn](https://linkedin.com/in/chitrank-agnihotri)
