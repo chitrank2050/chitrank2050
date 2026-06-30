@@ -4,8 +4,8 @@ Senior Full-Stack Engineer - React · Node.js · TypeScript · GenAI/RAG
 
 9+ years building production systems across AI, SaaS, fintech, and hospitality.
 
-🟢 **Open to Work** | Senior / Lead / Staff Engineer | Remote Only
-Interested in AI, Full-Stack, and Leadership roles at product-focused teams.
+<!-- 🟢 **Open to Work** | Senior / Lead / Staff Engineer | Remote Only
+Interested in AI, Full-Stack, and Leadership roles at product-focused teams. -->
 
 ---
 
